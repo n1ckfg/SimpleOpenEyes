@@ -1,10 +1,10 @@
-package SimpleOpenNI;
+package SimpleOpenEyes;
 
 /**
  * Constants matching SimpleOpenNI's joint/node ids so sketches port unchanged.
  * Values follow OpenNI XnSkeletonJoint numbering.
  */
-public interface SimpleOpenNIConstants {
+public interface SimpleOpenEyesConstants {
     public static final int SKEL_HEAD = 1;
     public static final int SKEL_NECK = 2;
     public static final int SKEL_TORSO = 3;

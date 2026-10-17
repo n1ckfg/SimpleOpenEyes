@@ -1,4 +1,4 @@
-package SimpleOpenNI;
+package SimpleOpenEyes;
 
 import processing.core.*;
 import ch.bildspur.vision.DeepVision;
@@ -20,7 +20,7 @@ import java.lang.reflect.Method;
  * single human pose network (lightweight OpenPose). The API mirrors
  * SimpleOpenNI so existing sketches migrate with minimal changes.
  */
-public class SimpleOpenEyes implements SimpleOpenNIConstants {
+public class SimpleOpenEyes implements SimpleOpenEyesConstants {
     public PApplet parent;
 
     private DeepVision vision;

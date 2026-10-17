@@ -60,14 +60,14 @@ SimpleOpenEyes/
 ├── library/
 │   └── SimpleOpenEyes.jar                          # Compiled Processing library archive
 ├── build/
-│   └── SimpleOpenNI/
+│   └── SimpleOpenEyes/
 │       ├── SimpleOpenEyes.class                    # Compiled core class
-│       └── SimpleOpenNIConstants.class             # Compiled constants interface
+│       └── SimpleOpenEyesConstants.class             # Compiled constants interface
 ├── SimpleOpenEyes/
 │   └── src/
-│       └── SimpleOpenNI/
+│       └── SimpleOpenEyes/
 │           ├── SimpleOpenEyes.java                 # Core runtime, capture, DNN & API facade
-│           └── SimpleOpenNIConstants.java          # OpenNI-compatible constants
+│           └── SimpleOpenEyesConstants.java          # OpenNI-compatible constants
 └── examples/
     ├── DepthViewer/
     │   └── DepthViewer.pde                         # Monocular MiDaS depth visualization sketch
@@ -79,13 +79,13 @@ SimpleOpenEyes/
 
 ## 4. Core Components
 
-### 4.1 `SimpleOpenNI.SimpleOpenNIConstants`
+### 4.1 `SimpleOpenEyes.SimpleOpenEyesConstants`
 An interface defining integer constants identical to OpenNI's `XnSkeletonJoint` and node enumerations:
 - **Skeleton Joint IDs (`SKEL_*`)**: `SKEL_HEAD` (`1`) through `SKEL_RIGHT_FOOT` (`24`), bounded by `SKEL_COUNT` (`25`). Note that indices follow OpenNI's sparse numbering (e.g., `4`, `5`, `8`, `11`, `14`, `19`, `23` are unused).
 - **Gesture / Node / Mode Constants**: `GESTURE_*`, `NODE_*`, `IMG_MODE_*`, and `RUN_MODE_*` constants preserved so legacy sketches compile without modification.
 
-### 4.2 `SimpleOpenNI.SimpleOpenEyes`
-The primary facade and runtime engine implementing `SimpleOpenNIConstants`. It manages four responsibilities:
+### 4.2 `SimpleOpenEyes.SimpleOpenEyes`
+The primary facade and runtime engine implementing `SimpleOpenEyesConstants`. It manages four responsibilities:
 1. **Sketch Integration & Lifecycle**: Registers `dispose()` with the host `PApplet` and discovers user event callbacks (`onNewUser`, `onLostUser`, `onStartCalibration`, `onEndCalibration`, `onStartPose`, `onEndPose`) via Java reflection.
 2. **Camera Management**: Wraps `processing.video.Capture` with a configurable GStreamer pipeline string (`cameraDevice`, defaulting to `"pipeline:autovideosrc"`) and optional in-place horizontal pixel flipping (`mirror = true` by default).
 3. **Deep Vision Inference**: Instantiates `DeepVision` on construction and initializes `SingleHumanPoseNetwork` and (optionally) `MidasNetwork` during `init()`.
@@ -164,10 +164,10 @@ In hardware OpenNI, 3D real-world coordinates (millimeters) are distinct from 2D
 - **DeepVision** (`ch.bildspur.vision.*`, v0.10.0, wrapping JavaCV / OpenCV DNN)
 
 ### Compilation & Packaging
-Source files in `SimpleOpenEyes/src/SimpleOpenNI/*.java` are compiled against Processing `core.jar`, `video.jar`, and `DeepVision/library/*` into `./build`, then packaged into `./library/SimpleOpenEyes.jar`:
+Source files in `SimpleOpenEyes/src/SimpleOpenEyes/*.java` are compiled against Processing `core.jar`, `video.jar`, and `DeepVision/library/*` into `./build`, then packaged into `./library/SimpleOpenEyes.jar`:
 
 ```bash
-javac -cp "$CORE.jar:$VIDEO.jar:DeepVision/library/*" -d build SimpleOpenEyes/src/SimpleOpenNI/*.java
+javac -cp "$CORE.jar:$VIDEO.jar:DeepVision/library/*" -d build SimpleOpenEyes/src/SimpleOpenEyes/*.java
 jar cf library/SimpleOpenEyes.jar -C build .
 ```
 

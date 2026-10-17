@@ -12,7 +12,7 @@ RGB camera tracking replacement for [SimpleOpenNI](https://github.com/tot-eng/Si
 SimpleOpenEyes/
 ├── library.properties
 ├── library/SimpleOpenEyes.jar
-├── src/SimpleOpenNI/*.java
+├── src/SimpleOpenEyes/*.java
 └── examples/
 ```
 
@@ -21,7 +21,7 @@ SimpleOpenEyes/
 Drop-in style, same calls as SimpleOpenNI:
 
 ```java
-import SimpleOpenNI.*;
+import SimpleOpenEyes.*;
 
 SimpleOpenEyes eyes;
 
@@ -70,7 +70,7 @@ eyes.setCameraPipeline("/dev/video0");               // v4l2 device
 ## Build
 
 ```bash
-javac -cp "$CORE.jar:$VIDEO.jar:DeepVision/library/*" -d build src/SimpleOpenNI/*.java
+javac -cp "$CORE.jar:$VIDEO.jar:DeepVision/library/*" -d build src/SimpleOpenEyes/*.java
 jar cf library/SimpleOpenEyes.jar -C build .
 ```
 

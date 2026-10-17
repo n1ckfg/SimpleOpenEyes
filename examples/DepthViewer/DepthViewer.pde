@@ -2,7 +2,7 @@
  * DepthViewer — SimpleOpenEyes MiDaS monocular depth from an RGB camera.
  * Replaces SimpleOpenNI hardware depth with estimated relative depth.
  */
-import SimpleOpenNI.*;
+import SimpleOpenEyes.*;
 
 SimpleOpenEyes eyes;
 

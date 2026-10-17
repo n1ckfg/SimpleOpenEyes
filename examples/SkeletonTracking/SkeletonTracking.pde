@@ -3,7 +3,7 @@
  * Uses a live RGB camera (GStreamer autovideosrc) and the lightweight
  * OpenPose network from deep-vision-processing. No depth camera required.
  */
-import SimpleOpenNI.*;
+import SimpleOpenEyes.*;
 
 SimpleOpenEyes eyes;
 
